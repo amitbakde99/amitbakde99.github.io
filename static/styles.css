@@ -54,10 +54,10 @@ main {
 }
 
 .hero {
-    background-image: url("path/to/your/hero-image.jpg"); /* Add a hero image */
+    background-image: url("static/images/hero.jpg"); /* Add a hero image */
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #de2727;
     padding: 100px 0;
     text-align: center;
 }
