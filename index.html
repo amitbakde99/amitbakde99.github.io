@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Bakde - Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="static/styles.css">
+    <script src="https://kit.fontawesome.com/YOUR_FA_KIT.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
+        <h1>Amit Bakde</h1>
+        <h2>Welcome to my Portfolio</h2>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -17,20 +20,26 @@
             </ul>
         </nav>
     </header>
-
-    <section class="hero">
-        <h1>Amit Bakde</h1>
-        <p>Data Analyst | Machine Learning Enthusiast | Visualization Expert</p>
+    
+    <section class="projects-section">
+        <h2>Featured Projects</h2>
+        <div class="projects-container">
+            <a href="tableau-dashboard.html" class="project-card">
+                <img src="static/images/project1.png" alt="Tableau Dashboard">
+                <h3>Tableau Dashboard</h3>
+            </a>
+            <a href="retail-banking-eda.html" class="project-card">
+                <img src="static/images/project2.png" alt="Retail Banking EDA">
+                <h3>Retail Banking EDA</h3>
+            </a>
+            <a href="web-scraping-analysis.html" class="project-card">
+                <img src="static/images/project3.png" alt="Web Scraping Data Analysis">
+                <h3>Web Scraping Data Analysis</h3>
+            </a>
+        </div>
+        <a href="projects.html" class="view-all-btn">View All Projects</a>
     </section>
 
-    <section class="project-intro">
-        <h2>Project Showcase</h2>
-        <p>Explore my projects in Data Visualization, Machine Learning, NLP, and Computer Vision.</p>
-        <a href="projects.html" class="btn">View Projects</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Amit Bakde. All rights reserved.</p>
-    </footer>
+    <script src="main.js"></script>
 </body>
 </html>
