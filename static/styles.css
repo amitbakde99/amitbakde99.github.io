@@ -3,23 +3,30 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text color */
+    padding-top: 50px; /* Adjust this value as needed */
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure footer sticks to bottom */
+    min-height: 100vh;
 }
 
-header {
-    background-color: #333; /* Darker navigation bar */
-    color: #fff;
-    padding: 20px 0; /* Add some vertical padding */
-    text-align: center;
+/* Navigation Styles */
+
+
+nav {
+    background-color: rgba(51, 51, 51, 0.7); /* Semi-transparent dark background */
+    position: fixed; /* Fixed to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 2; /* Ensure it's above the hero image */
 }
 
 .header-content {
-    max-width: 960px; /* Set a maximum width for the header content */
-    margin: 0 auto; /* Center the header content */
+    max-width: 960px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -28,64 +35,91 @@ header h1 {
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 10;
+    margin: 0;  /* thickens the nav bar */
 }
 
 nav li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    border-radius: 5px; /* Rounded corners for nav links */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-weight: 500; /* Lighter font weight */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    border: 1px solid transparent; /* Add a transparent border */
 }
 
-nav a:hover, nav a.active {
-    background-color: #555; /* Slightly darker on hover */
-    border-radius: 5px; /* Rounded corners on hover */
+
+nav a:hover,
+nav a.active {
+    color: #007bff; /* Highlight color on hover/active */
+    background-color: #555;
+    border-color: #777; /* Highlight border on hover/active */
 }
 
 main {
     padding: 20px;
-    flex: 1; /* Allow main content to take up available space */
+    flex: 1;
 }
 
+/* Hero Section */
 .hero {
-    background-image: url("static/images/hero.jpg"); /* Add a hero image */
+    background-image: url("images/hero.jpg");
     background-size: cover;
     background-position: center;
-    color: #de2727;
+    color: #ffffff;
     padding: 100px 0;
+    position: relative; /* For overlay */
     text-align: center;
 }
 
+
+
 .hero-content {
     max-width: 600px;
+    
     margin: 0 auto;
+    z-index: 1; 
 }
+
+
 
 .hero h3 {
-    font-size: 2em;
+    font-size: 2.5em; /* Increased hero title size */
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added text shadow */
 }
 
+
 .hero p {
-    font-size: 1.2em;
+    font-size: 1.6em;
+    line-height: 1.5;
     margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
     display: inline-block;
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Increased button size */
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.1em; /* Slightly larger font for button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+.cta-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Projects Section */
 .projects-section {
     text-align: center;
     margin-top: 40px;
@@ -100,37 +134,52 @@ main {
 }
 
 .project-card {
-    width: 300px; /* Adjust as needed */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden; /* Hide overflowing image */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-decoration: none; /* Remove underline from link */
-    color: inherit; /* Inherit color from parent */
+    width: 350px; /* Increased card width */
+    border: none; /* Removed border */
+    border-radius: 8px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Move up slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
 }
 
 .project-card img {
     width: 100%;
-    height: auto;
-    display: block; /* Prevent image from creating extra space */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Cover the entire area */
+    display: block;
 }
 
 .project-card h3 {
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     margin: 0;
     text-align: center;
+    font-size: 1.2em; /* Slightly larger font for project titles */
+    color: #333; /* Added color to the text*/
 }
 
 .view-all-btn {
     display: inline-block;
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px; /* Increased button size */
     text-decoration: none;
     border-radius: 5px;
     margin-top: 20px;
+    font-size: 1.1em; /* Slightly larger font for button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+.view-all-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
@@ -138,3 +187,81 @@ footer {
     padding: 10px;
     margin-top: 40px;
 }
+
+/* About Section */
+.about-section {
+    padding: 60px; /* Increased padding */
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px; /* Increased max-width */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px; /* Increased padding */
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+}
+
+.profile-image {
+    width: 250px; /* Increased image size */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px; /* Increased margin */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.profile-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+.about-content h2 {
+    margin-bottom: 30px; /* Increased margin */
+    color: #2c3e50; /* Darker heading color */
+    font-size: 2em; /* Increased heading size */
+}
+
+.about-content h3 {
+    margin-top: 30px; /* Increased margin */
+    margin-bottom: 15px;
+    color: #555;
+    border-bottom: 2px solid #eee; /* Thicker line */
+    padding-bottom: 8px; /* Increased padding */
+}
+
+.about-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.about-content li {
+    margin-bottom: 12px; /* Increased margin */
+    font-size: 1.1em; /* Slightly larger font */
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0; /* Increased margin */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Increased gap */
+}
+
+.skills-list li {
+    background-color: #eee;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 1.1em; /* Slightly larger font */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
