@@ -1,78 +1,1383 @@
-/* General Styles */
+:root {
+    --bg-color: #121212;
+    --accent-color: #0085FF; /* Your final chosen color */
+    --text-color: #E0E0E0;
+    --card-bg: #1e1e1e;
+    --nav-bg: rgba(18, 18, 18, 0.95);
+    --hover-bg: #2c2c2c;
+}
+
+
+
+
+/* Base Setup */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-}
-
-/* Navbar */
-.navbar {
-    background-color: #212529;
-    padding: 1rem 2rem;
+    padding-top: 70px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.navbar a {
-    color: white;
+/* Navigation Styles */
+nav.navbar {
+    background-color: var(--nav-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 1rem;
     font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--hover-bg);
+    color: var(--accent-color);
+}
+
+/* Header Content */
+.header-content {
+    text-align: center;
+    padding: 100px 20px 50px;
+}
+
+.header-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.header-content h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #b0b0b0;
+}
+
+.highlight {
+    color: var(--accent-color);
+}
+
+/* CTA Buttons */
+.cta-button, .cta-secondary-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #121212;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-secondary-button:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+
+.cta-secondary-button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+/* Main */
+main {
+    flex: 1;
+    padding: 40px 20px;
 }
 
 /* Hero Section */
 .hero {
+    position: relative;
+    background: url('../static/images/hero-bg.jpg') center center/cover no-repeat;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background: #212529;
-    color: white;
-    padding: 50px 20px;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Adds a subtle dark overlay */
+    z-index: 1;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: auto;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
 }
 
-/* Projects Page */
+.hero-content h3 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    color: #dddddd;
+    margin-bottom: 30px;
+}
+
+/* Button already exists in your CSS */
+
+
+
+/* Core Skills Section */
+.core-skills {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.core-skills h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: var(--accent-color);
+}
+
+/* Use existing .skills-list styles */
+.core-skills .skills-list {
+    justify-content: center;
+}
+
+/* Fade-in animation for skills section */
+.core-skills {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Projects Section */
+.projects-section {
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .project-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .project-card img {
     width: 100%;
-    border-radius: 6px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 20px;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+/* View All Button */
+.view-all-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #121212;
+    padding: 12px 30px;
+    border-radius: 30px;
+    margin-top: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
 }
 
 /* Footer */
-.footer {
-    background-color: #212529;
-    color: white;
+footer {
+    background-color: #1e1e1e;
+    color: #aaa;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* About Section */
+.about-section {
+    padding: 1px 20px;
+    text-align: center;
+}
+.about-layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.about-left h1 {
+    margin-top: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.about-left h3 {
+    font-size: 1em;
+    font-weight: 400;
+    color: #aaa;
+    margin-top: 8px;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.4em;
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+    margin-top: 5px; /* NEW small margin if needed */
+}
+
+.social-links a:hover {
+    color: #00cccc;
+}
+
+.about-right {
+    flex: 2;
+    padding: 20px;
+    text-align: left;
+}
+
+
+.about-intro h2 {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.about-right p {
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    color: #ccc;
+}
+
+.about-details h3 {
+    margin-top: 30px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.about-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-details ul li {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #ddd;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skills-list li {
+    background: rgba(0, 102, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: #0085FF;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.skills-list li:hover {
+    background: rgba(0, 102, 255, 0.2);
+}
+
+@media (max-width: 900px) {
+    .about-layout {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .about-left, .about-right {
+        text-align: center;
+    }
+}
+----------------------------------------
+
+/* Contact Section */
+.contact-section {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.contact-content {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.contact-item i {
+    margin-right: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #181818;
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: #121212;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+
+/* Utilities */
+a {
+    transition: color 0.3s ease;
+}
+/* Back to Top Button */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: #121212;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#backToTopBtn:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     margin-top: 40px;
+    justify-content: center;
+    align-items: stretch;
+}
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #121212;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 1.2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+body.light-theme {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+
+body.light-theme nav.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .nav-links a {
+    color: #121212;
+}
+
+body.light-theme .nav-links a:hover,
+body.light-theme .nav-links a.active {
+    background-color: #e0e0e0;
+    color: var(--accent-color);
+}
+
+body.light-theme .header-content h2 {
+    color: #666;
+}
+
+body.light-theme .project-card {
+    background-color: #fff;
+}
+
+body.light-theme .projects-section h2,
+body.light-theme .about-content h2,
+body.light-theme .contact-section h2 {
+    color: #121212;
+}
+
+body.light-theme footer {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Adjust contact form fields and buttons */
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    background-color: #fff;
+    color: #121212;
+    border: 1px solid #ccc;
+}
+
+body.light-theme #backToTopBtn {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+/* Rotate Animation for Theme Toggle */
+.rotate-animation {
+    animation: rotateMe 0.5s ease-in-out;
+}
+
+@keyframes rotateMe {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Subsection Cards inside About Page */
+.sub-section {
+    background-color: var(--card-bg);
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sub-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.sub-section h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.sub-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-section ul li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/* --- LIGHT THEME FIXES FOR TEXT, BACKGROUND, and HEADINGS --- */
+body.light-theme {
+    background-color: #f4f4f4;
+    color: #121212;
+}
+
+/* Navbar */
+body.light-theme nav.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .nav-links a {
+    color: #121212;
+}
+
+body.light-theme .nav-links a:hover,
+body.light-theme .nav-links a.active {
+    background-color: #e0e0e0;
+    color: var(--accent-color);
+}
+
+/* Header and Hero */
+body.light-theme .header-content h1,
+body.light-theme .header-content h2,
+body.light-theme .hero-content h3,
+body.light-theme .hero-content p {
+    color: #121212;
+}
+
+/* Project Cards, About Section, Contact Section, Sub Cards */
+body.light-theme .project-card,
+body.light-theme .about-content,
+body.light-theme .contact-content,
+body.light-theme .sub-section {
+    background-color: #ffffff;
+    color: #121212;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Card Titles (IMPORTANT FIX) */
+body.light-theme .project-card h3 {
+    color: #121212;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.project-card h3 {
+    margin: 20px 15px 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: #ccc;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    line-height: 1.5em;
+    min-height: 120px; /* Keeps cards uniform */
+}
+
+
+
+.project-links a {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: var(--accent-color);
+    color: #121212;
+    padding: 8px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: #0077e6;
+    transform: translateY(-2px);
+}
+
+
+/* Section Headings */
+body.light-theme .projects-section h2,
+body.light-theme .about-section h2,
+body.light-theme .contact-section h2 {
+    color: #121212;
+}
+
+/* Footer */
+body.light-theme footer {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Buttons */
+body.light-theme .cta-button, 
+body.light-theme .view-all-btn, 
+body.light-theme .contact-form button {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+body.light-theme .cta-button:hover, 
+body.light-theme .view-all-btn:hover, 
+body.light-theme .contact-form button:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+
+/* Contact Info Icons */
+body.light-theme .contact-item {
+    color: var(--accent-color);
+}
+
+/* Form Inputs */
+body.light-theme .contact-form input,
+body.light-theme .contact-form textarea {
+    background-color: #fff;
+    color: #121212;
+    border: 1px solid #ccc;
+}
+
+/* Smooth Transition for Theme Switch */
+body, nav, .project-card, .about-content, .contact-content, .sub-section, footer, .header-content, .hero-content, .contact-item, .skills-list li {
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+/* Skills List Modern Pills */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.skills-list li {
+    padding: 8px 16px;
+    background-color: rgba(0, 102, 255, 0.08); /* Very light blue background */
+    color: #0066ff; /* Blue text */
+    font-weight: 500;
+    border-radius: 9999px; /* Full pill shape */
+    font-size: 0.95em; /* Slightly smaller, neat */
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+/* Optional hover effect for Skills */
+.skills-list li:hover {
+    background-color: rgba(0, 102, 255, 0.15);
+    cursor: default;
+}
+
+/* Light Theme Skills adjustment */
+body.light-theme .skills-list li {
+    background-color: rgba(0, 102, 255, 0.12);
+    color: #0066ff;
+}
+/* Light Theme Fix for Skills Pills */
+body.light-theme .skills-list li {
+    background-color: rgba(0, 102, 255, 0.12);
+    color: #0066ff;
+}
+
+/* Light Mode Fix for Sub-section Content Text */
+body.light-theme .sub-section ul li,
+body.light-theme .sub-section p,
+body.light-theme .sub-section {
+    color: #121212;
+}
+/* Hover Effect for Skills Pills */
+.skills-list li:hover {
+    background-color: rgba(0, 102, 255, 0.2);
+    color: #0044cc;
+    transform: scale(1.05);
+}
+
+/* Hover Effect for Sub-section List Items (Certifications, Experience) */
+.sub-section ul li:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+/* Fine-tune spacing around Skills under Hero */
+.hero-content p {
+    margin-bottom: 10px; /* Reduce from 30px to 10px */
+}
+
+.core-skills {
+    margin-top: 10px; /* Small space above the skills icons */
+}
+
+/* Optional: Center-align the skills even better */
+.skills-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+}
+
+
+/* Light Theme Overrides */
+body.light-theme {
+    --accent-color: #00bcd4; /* Soft teal for light mode */
+}
+
+
+/* Light Theme */
+body.light-theme {
+    --accent-color: #0085FF; /* Same Blue in Light Theme */
+}
+
+.hero-content {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-content h3 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin: 0 auto 30px;
+    max-width: 800px;
+    color: #ccc;
+}
+
+.hero-content .cta-secondary-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    color: var(--accent-color);
+    font-weight: bold;
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-content .cta-secondary-button:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    transform: translateY(-2px);
+}
+/* CONTACT SECTION BEAUTIFICATION */
+
+.contact-section {
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    background: url('../static/images/contact-bg.jpg') center center/cover no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Slight darker overlay */
+    z-index: 1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(30, 30, 30, 0.95); /* Dark card */
+    padding: 50px 40px;
+    border-radius: 16px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.contact-content h2 {
+    font-size: 2.4em;
+    margin-bottom: 30px;
+    color: var(--accent-color);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    font-size: 1.1em;
+}
+
+.contact-item i {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+.contact-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #00cccc;
+    text-decoration: underline;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #181818;
+    color: #ddd;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+    outline: none;
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: #121212;
+    font-size: 1.1em;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0077e6;
+    transform: translateY(-3px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.about-left {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+}
+
+.about-right {
+    flex: 2;
+    text-align: left;
+}
+
+.about-intro h2 {
+    font-size: 2.2em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.about-right p {
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.about-details {
+    margin-top: 30px;
+}
+
+.about-details h3 {
+    margin-top: 30px;
+    font-size: 1.4em;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.about-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-details ul li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #ddd;
+}
+
+.skills-list {
+    list-style: none; /* <--- Important to REMOVE bullets */
+    padding: 0;
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.skills-list li {
+    padding: 8px 16px;
+    background-color: rgba(0, 102, 255, 0.08); /* Very light blue background */
+    color: #0066ff;
+    font-weight: 500;
+    border-radius: 9999px;
+    font-size: 0.95em;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 900px) {
+    .about-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-left, .about-right {
+        text-align: center;
+    }
+}
+.wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.hero-content h3,
+.hero-content p,
+.hero-content a {
+    color: #ffffff;
+}
+
+/* Even in light theme, keep it white */
+body.light-theme .hero-content h3,
+body.light-theme .hero-content p,
+body.light-theme .hero-content a {
+    color: #ffffff;
+}
+
+body.light-theme {
+    background-color: #f0f0f0;
+    color: #121212;
+    --accent-color: #0085FF; /* same blue */
+}
+
+/* Navbar */
+body.light-theme nav.navbar { background-color: rgba(255, 255, 255, 0.95); }
+body.light-theme .nav-links a { color: #121212; }
+body.light-theme .nav-links a:hover, body.light-theme .nav-links a.active { background-color: #e0e0e0; color: var(--accent-color); }
+
+/* Hero section */
+body.light-theme .hero-content h3, body.light-theme .hero-content p, body.light-theme .hero-content a { color: #ffffff; }
+
+/* About page */
+body.light-theme .about-layout { background: #ffffff; color: #121212; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); }
+body.light-theme .about-left { background: #ffffff; }
+body.light-theme .about-right p, body.light-theme .about-intro h2, body.light-theme .about-details h3, body.light-theme .about-details ul li { color: #121212; }
+
+/* Project cards */
+body.light-theme .project-card { background-color: #fff; color: #121212; }
+
+/* Footer */
+body.light-theme footer { background-color: #e0e0e0; color: #333; }
+
+/* Contact Section */
+body.light-theme .contact-content { background: #ffffff; color: #121212; }
+
+/* Skills Pills */
+body.light-theme .skills-list li { background-color: rgba(0, 102, 255, 0.12); color: #0066ff; }
+
+
+body.light-theme .about-left,
+body.light-theme .about-right {
+    background: #ffffff;
+}
+
+
+
+.about-details ul li {
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.about-details ul:not(.skills-list) {
+    list-style-type: disc; /* ✅ Bullet points only for normal lists */
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.about-details ul:not(.skills-list) li {
+    color: #ddd;
+    margin-bottom: 8px;
+}
+
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cta-button,
+.cta-button-secondary {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+.cta-button:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+
+.cta-button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    transform: translateY(-2px);
+}
+
+
+.view-project-btn, 
+.github-btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
+
+/* View Project button - Elegant Outline */
+.view-project-btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.view-project-btn:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    transform: translateY(-2px);
+}
+
+/* GitHub Repo button - Solid Blue */
+.github-btn {
+    background-color: var(--accent-color);
+    color: #121212;
+    border: 2px solid var(--accent-color);
+}
+
+.github-btn:hover {
+    background-color: #00cccc;
+    transform: translateY(-2px);
+}
+
+.project-wrapper {
+    max-width: 1000px;
+    margin: -90px auto;
+    padding: 40px 20px 90px; /* top padding = 40px, bottom padding = 20px */
+    text-align: center;
+}
+
+.project-title {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.project-banner {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.project-description p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.project-description h3 {
+    margin-top: 40px;
+    color: var(--accent-color);
+    font-size: 1.8em;
+}
+
+.project-detail-section {
+    padding-top: 40px;
+}
+
+
+.project-description ul {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 800px;
+    font-size: 1.1em;
+    color: #ccc;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.project-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-buttons a {
+    text-decoration: none;
+}
+
+.project-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0 30px;
+    flex-wrap: wrap;
+}
+
+.project-stats .stat-block {
+    background-color: #1e1e1e; /* <- Dark background */
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    min-width: 180px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme fix for project stats blocks */
+body.light-theme .project-stats .stat-block {
+    background-color: #f0f0f0;  /* Light grey background */
+    color: #121212;             /* Dark text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Make number (like 50GB+) stay accent colored */
+body.light-theme .stat-block strong {
+    color: var(--accent-color); /* Your blue */
+}
+
+
+.stat-item {
+    background-color: var(--card-bg);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-width: 150px;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item h2 {
+    margin: 0;
+    font-size: 2em;
+    color: var(--accent-color);
+}
+
+.stat-item p {
+    margin: 8px 0 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+body.light-theme .project-detail-section {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+body.light-theme .project-title {
+    color: #121212;
+}
+
+body.light-theme .project-description p,
+body.light-theme .project-description ul li,
+body.light-theme .project-description h3 {
+    color: #333333;
 }

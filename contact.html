@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Amit Bakde</title>
+
+    <link rel="icon" href="static/images/favicon.ico" type="image/png">
+    
+    <!-- Fonts and Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+
+                <div class="contact-info">
+                    <!-- Your social/contact links -->
+                    <div class="contact-item"><a href="https://www.linkedin.com/in/amitbakde" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+                    <div class="contact-item"><a href="https://github.com/amitbakde99" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+                    <div class="contact-item"><a href="mailto:amitbakde99@gmail.com"><i class="fas fa-envelope"></i> Email</a></div>
+                    <div class="contact-item"><a href="https://www.kaggle.com/amitbakde" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a></div>
+                    <div class="contact-item"><a href="tel:+918349727984"><i class="fas fa-phone"></i> Phone</a></div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    
+                    <form id="contact-form">
+                        <input type="text" name="user_name" placeholder="Your Name" required>
+                        <input type="email" name="user_email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Amit Bakde | Built with ❤️</p>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+    
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-theme');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.classList.add('rotate-animation');
+            setTimeout(() => toggleBtn.classList.remove('rotate-animation'), 500);
+
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+    <!-- EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("BW0_a8mPUiAwmosVD"); // your PUBLIC KEY
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_7ohef19', 'template_tg7mft7', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    alert('Failed to send the message. Please try again.');
+                });
+        });
+    </script>
+
+</body>
+</html>

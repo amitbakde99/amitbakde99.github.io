@@ -3,34 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amit Bakde - Portfolio</title>
+    <title>Amit Bakde | Portfolio</title>
+    <link rel="icon" href="static/images/favicon.ico" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <button id="theme-toggle" title="Toggle Theme">
+        <i class="fas fa-moon"></i> <!-- Moon Icon initially -->
+    </button>
+      
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="static/styles.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/YOUR_FA_KIT.js" crossorigin="anonymous"></script>
 </head>
+
+
+
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </nav>
+
+        <div class="header-content">
+            <h1>Hello, I'm <span class="highlight">Amit Bakde</span></h1>
+            <h2>Data Scientist | Analyst | Problem Solver</h2>
+
+            <section class="core-skills">
+                
+                <ul class="skills-list">
+                    <li><i class="fas fa-database"></i> SQL</li>
+                    <li><i class="fab fa-python"></i> Python</li>
+                    <li><i class="fas fa-robot"></i> Machine Learning</li>
+                    <li><i class="fas fa-chart-line"></i> Data Analysis</li>
+                    <li><i class="fas fa-chart-pie"></i> Tableau</li>
+                    <li><i class="fas fa-chart-bar"></i> Power BI</li>
+                    <li><i class="fas fa-code"></i> R</li>
+                    <li><i class="fas fa-eye"></i> Data Visualization</li>
+                    <li><i class="fas fa-project-diagram"></i> Statistical Modeling</li>
+                </ul>
+            </section> 
+
+            <a href="projects.html" class="cta-button">View My Work <i class="fas fa-arrow-right"></i></a>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Amit Bakde</h1>
-        <p>Data Analyst | Machine Learning Enthusiast | Visualization Expert</p>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <h3>Passionate about uncovering insights from data.</h3>
+              <p>I specialize in data analysis, machine learning, and visualization. Dive into my projects and let's connect!</p>
+              <a href="about.html" class="cta-secondary-button">
+                Learn More About Me <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+        </section>
+          
 
-    <section class="project-intro">
-        <h2>Project Showcase</h2>
-        <p>Explore my projects in Data Visualization, Machine Learning, NLP, and Computer Vision.</p>
-        <a href="projects.html" class="btn">View Projects</a>
-    </section>
+        
+        
+
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <a href="https://github.com/amitbakde99/Industry_4.0_Research_Project" class="project-card" target="_blank">
+                    <img src="static/images/project1.png" alt="Analyzing Industry 4.0 trends">
+                    <h3>Analyzing Industry 4.0 Trends in NIFTY 200 Companies</h3>
+                </a>
+                <a href="https://github.com/amitbakde99/Predictive_Analytics_for_Retail_Banking" class="project-card" target="_blank">
+                    <img src="static/images/project2.png" alt="Retail Banking EA">
+                    <h3>Predictive Analytics for Retail Banking</h3>
+                </a>
+                <a href="https://public.tableau.com/app/profile/amit.bakde/viz/FoodForecastingProject/FoodForecastingSummary" class="project-card" target="_blank">
+                    <img src="static/images/project3.png" alt="Restaurant Menu Engineering Analysis">
+                    <h3>Restaurant Menu Engineering Analysis</h3>
+                </a>
+            </div>
+            <a href="projects.html" class="view-all-btn">View All Projects <i class="fas fa-arrow-right"></i></a>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Amit Bakde. All rights reserved.</p>
+        <p>&copy; 2025 Amit Bakde | Built with ❤️</p>
     </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Highlight the active page link
+        const currentPage = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+    
+        // Check saved theme from localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-theme');
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            body.classList.remove('light-theme');
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    
+        let isDark = !body.classList.contains('light-theme'); // Detect current
+    
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.classList.add('rotate-animation');
+            setTimeout(() => {
+                toggleBtn.classList.remove('rotate-animation');
+            }, 500);
+    
+            body.classList.toggle('light-theme');
+            isDark = !isDark;
+    
+            // Update icon and save choice
+            if (isDark) {
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+    
+    
+    
 </body>
 </html>
