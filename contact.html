@@ -102,13 +102,13 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
   (function(){
-      emailjs.init("YOUR_PUBLIC_KEY"); // Example: 'BW0_a8mPUiAwmosVD'
+      emailjs.init("BW0_a8mPUiAwmosVD"); // Example: 'BW0_a8mPUiAwmosVD'
   })();
 
   document.getElementById('contact-form').addEventListener('submit', function(event) {
       event.preventDefault();
 
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      emailjs.sendForm('service_7ohef19', 'template_tg7mft7', this)
           .then(function() {
               alert('Message sent successfully! ✅');
               document.getElementById('contact-form').reset();
