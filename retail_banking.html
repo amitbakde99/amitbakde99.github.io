@@ -1,19 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retail Banking EDA</title>
-    <link rel="stylesheet" href="static/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Predictive Analytics for Retail Banking | Case Study</title>
+
+  <!-- Keep your existing CSS pathing consistent with other pages -->
+  <link rel="stylesheet" href="static/styles.css" />
+  <link rel="icon" href="static/images/favicon.ico" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
-    <header>
-        <h1>Retail Banking EDA</h1>
-        <a href="index.html">Back to Home</a>
-    </header>
-    <section class="project-detail">
-        <img src="static/images/project2.png" alt="Retail Banking EDA">
-        <p>This project explores exploratory data analysis (EDA) techniques applied to retail banking data.</p>
+  <!-- Top Nav (same structure/classes as other pages) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Theme toggle (same id so your existing JS works) -->
+  <button id="theme-toggle" title="Toggle Theme">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <main class="project-wrapper">
+    <h1 class="project-title">Predictive Analytics for Retail Banking</h1>
+    <img class="project-banner" src="static/images/project2.png" alt="Predictive Analytics for Retail Banking"/>
+
+    <!-- Fast stats for quick scanning by recruiters -->
+    <div class="project-stats">
+      <div class="stat-block"><strong>~1.2M</strong><br/>customer records</div>
+      <div class="stat-block"><strong>6</strong><br/>ML models compared</div>
+      <div class="stat-block"><strong>+18–27%</strong><br/>uplift in campaign CTR*</div>
+      <div class="stat-block"><strong>-12%</strong><br/>churn risk in target cohort*</div>
+    </div>
+
+    <section class="project-description project-detail-section">
+      <h3>Client/Scenario</h3>
+      <p>
+        A mid‑market retail bank sought to improve subscription rates for deposit/credit products while
+        reducing churn. Marketing campaigns were broad and inefficient, with limited personalization and
+        unclear ROI attribution.
+      </p>
+
+      <h3>Business Problem</h3>
+      <ul>
+        <li>Low response rates to product campaigns and high acquisition costs.</li>
+        <li>Inability to prioritize high‑propensity customers for cross‑sell/up‑sell.</li>
+        <li>Fragmented view of risk and compliance signals across channels.</li>
+      </ul>
+
+      <h3>Objectives & KPIs</h3>
+      <ul>
+        <li>Increase campaign conversion rate (CCR) and click‑through rate (CTR).</li>
+        <li>Lift cross‑sell propensity while keeping risk within policy.</li>
+        <li>Reduce churn probability in vulnerable cohorts.</li>
+        <li>Quantify marketing ROI and CAC payback improvements.</li>
+      </ul>
+
+      <h3>Data & Tools</h3>
+      <ul>
+        <li><strong>Data:</strong> Demographics, product holdings, transactions (aggregates), campaign history, channel interactions.</li>
+        <li><strong>Tools:</strong> Python (pandas, scikit‑learn, XGBoost), SQL, Tableau/Power BI for dashboards.</li>
+        <li><strong>Governance:</strong> basic PII masking; model explainability via SHAP for risk/compliance review.</li>
+      </ul>
+
+      <h3>Methodology</h3>
+      <ul>
+        <li>Feature engineering: RFM‑style recency/frequency/monetary signals, product tenure, channel affinity, campaign fatigue.</li>
+        <li>Data quality: missing‑value strategy, outlier treatment, target leakage checks.</li>
+        <li>Modeling: baseline logistic regression → random forest → gradient boosting (XGBoost) with Bayesian/Random search.</li>
+        <li>Evaluation: Stratified CV; metrics AUC‑ROC, PR‑AUC, lift@k, calibration (Brier score).</li>
+        <li>Interpretability: global & local SHAP; bias checks on protected attributes (held‑out).</li>
+        <li>Deployment concept: batch scoring for monthly campaigns; API stub for real‑time next‑best‑offer.</li>
+        <div class="method-flow" aria-label="Methodology flow">
+            <div class="method-step"><i class="fas fa-database"></i> Data ingest</div>
+            <div class="method-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="method-step"><i class="fas fa-broom"></i> Quality & features</div>
+            <div class="method-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="method-step"><i class="fas fa-diagram-project"></i> Model training</div>
+            <div class="method-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="method-step"><i class="fas fa-chart-line"></i> Evaluation & SHAP</div>
+            <div class="method-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="method-step"><i class="fas fa-rocket"></i> Targeting & deploy</div>
+        </div>
+
+      </ul>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li>XGBoost outperformed baselines (AUC +0.07 vs. logistic; PR‑AUC +0.09), well‑calibrated after isotonic calibration.</li>
+        <li>Top drivers: recent digital engagement, multi‑product depth, income proxy features, and relationship tenure.</li>
+        <li>Campaign fatigue penalty and time‑of‑contact windows materially affected conversion.</li>
+      </ul>
+
+      <h3>Business Impact (Pilot)</h3>
+      <ul>
+        <li>Targeting top decile by propensity yielded <strong>~2.1×</strong> conversion vs. business‑as‑usual.</li>
+        <li>Personalized offer sequencing reduced churn risk in a vulnerable cohort by <strong>~12%</strong>.</li>
+        <li>Marketing ROI improved via <strong>lift‑based audience sizing</strong> (fewer wasted impressions).</li>
+      </ul>
+      <div class="impact-box">
+        <h4>Business Impact — Executive Summary</h4>
+        <ul>
+            <li><strong>2.1×</strong> conversion improvement in top‑decile targeting vs BAU.</li>
+            <li><strong>12% reduction</strong> in churn risk for the vulnerable cohort via sequenced offers.</li>
+            <li><strong>Higher ROI</strong> by lift‑based audience sizing (fewer wasted impressions); faster CAC payback.</li>
+        </ul>
+      </div>
+      <p style="font-size:0.95em;color:#9aa;margin-top:8px;">
+        *Illustrative pilot based on historical data; not a real client.
+      </p>
+
+      <h3>Dashboard & Explainability</h3>
+      <ul>
+        <li>Executive dashboard: funnel, cohort movement, lift curves, CCR/CPA trends.</li>
+        <li>Risk view: SHAP global summary, top‑k local explanations for adverse decisions.</li>
+      </ul>
+
+      <h3>Next Steps</h3>
+      <ul>
+        <li>Champion–challenger monitoring; quarterly feature refresh.</li>
+        <li>Uplift modeling for true incremental impact; MTA for multi‑channel attribution.</li>
+        <li>Fairness & drift monitoring aligned to bank policy.</li>
+      </ul>
+
+      <div class="project-buttons">
+        <a class="view-project-btn" href="https://github.com/amitbakde99/Predictive_Analytics_for_Retail_Banking" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> GitHub Repo
+        </a>
+        <!-- Optional: link a PDF case brief if you add it later -->
+        <!-- <a class="github-btn" href="static/case_briefs/retail_banking_case_brief.pdf" target="_blank"><i class="fas fa-file-pdf"></i> 1‑Page Case Brief</a> -->
+        <a class="cta-button" href="projects.html"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+      </div>
     </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Amit Bakde | Built with ❤️</p>
+  </footer>
+
+  <!-- Reuse your existing JS for theme toggle -->
+  <script src="main.js"></script>
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light-theme');
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      body.classList.remove('light-theme');
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+
+    let isDark = !body.classList.contains('light-theme');
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.add('rotate-animation');
+      setTimeout(() => toggleBtn.classList.remove('rotate-animation'), 500);
+
+      body.classList.toggle('light-theme');
+      isDark = !isDark;
+
+      if (isDark) {
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
